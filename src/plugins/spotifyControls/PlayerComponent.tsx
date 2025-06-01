@@ -90,14 +90,14 @@ function CopyContextMenu({ name, path }: { name: string; path: string; }) {
             <Menu.MenuItem
                 key={copyId}
                 id={copyId}
-                label={`Copy ${name} Link`}
+                label={`Скопировать ссылку на ${name}`}
                 action={() => copyWithToast("https://open.spotify.com" + path)}
                 icon={LinkIcon}
             />
             <Menu.MenuItem
                 key={openId}
                 id={openId}
-                label={`Open ${name} in Spotify`}
+                label={`Открыть ${name} в Spotify`}
                 action={() => SpotifyStore.openExternal(path)}
                 icon={OpenExternalIcon}
             />
