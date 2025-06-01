@@ -44,22 +44,22 @@ const CONNECT = 1n << 20n;
 
 export const settings = definePluginSettings({
     hideUnreads: {
-        description: "Hide Unreads",
+        description: "Скрыть непрочитанные сообщения",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     showMode: {
-        description: "The mode used to display hidden channels.",
+        description: "Режим отображения скрытых каналов.",
         type: OptionType.SELECT,
         options: [
-            { label: "Plain style with Lock Icon instead", value: ShowMode.LockIcon, default: true },
-            { label: "Muted style with hidden eye icon on the right", value: ShowMode.HiddenIconWithMutedStyle },
+            { label: "Обычный стиль с иконкой замка вместо скрытого канала", value: ShowMode.LockIcon, default: true },
+            { label: "Стиль с затемнением с иконкой скрытого канала справа", value: ShowMode.HiddenIconWithMutedStyle },
         ],
         restartNeeded: true
     },
     defaultAllowedUsersAndRolesDropdownState: {
-        description: "Whether the allowed users and roles dropdown on hidden channels should be open by default",
+        description: "Открывать ли выпадающий список разрешенных пользователей и ролей на скрытых каналах по умолчанию",
         type: OptionType.BOOLEAN,
         default: true
     }
@@ -71,7 +71,7 @@ function isUncategorized(objChannel: { channel: Channel; comparator: number; }) 
 
 export default definePlugin({
     name: "ShowHiddenChannels",
-    description: "Show channels that you do not have access to view.",
+    description: "Показывает каналы, на которые у вас нет доступа для просмотра.",
     authors: [Devs.BigDuck, Devs.AverageReactEnjoyer, Devs.D3SOX, Devs.Ven, Devs.Nuckyz, Devs.Nickyux, Devs.dzshn],
     settings,
 
