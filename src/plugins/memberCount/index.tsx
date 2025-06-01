@@ -40,13 +40,13 @@ export const ThreadMemberListStore = findStoreLazy("ThreadMemberListStore") as F
 const settings = definePluginSettings({
     toolTip: {
         type: OptionType.BOOLEAN,
-        description: "If the member count should be displayed on the server tooltip",
+        description: "Показывать количество участников на сервере в подсказке",
         default: true,
         restartNeeded: true
     },
     memberList: {
         type: OptionType.BOOLEAN,
-        description: "If the member count should be displayed on the member list",
+        description: "Показывать количество участников в списке участников",
         default: true,
         restartNeeded: true
     }
@@ -58,7 +58,7 @@ export const cl = classNameFactory("vc-membercount-");
 
 export default definePlugin({
     name: "MemberCount",
-    description: "Shows the amount of online & total members in the server member list and tooltip",
+    description: "Показывает количество участников онлайн и общее количество участников в списке участников и подсказке",
     authors: [Devs.Ven, Devs.Commandtechno],
     settings,
 

@@ -39,12 +39,12 @@ const BlobMask = findComponentByCodeLazy("!1,lowerBadgeSize:");
 const settings = definePluginSettings({
     backgroundCheck: {
         type: OptionType.BOOLEAN,
-        description: "Check for new sessions in the background, and display notifications when they are detected",
+        description: "Проверять новые сессии в фоновом режиме и отображать уведомления при их обнаружении",
         default: false,
         restartNeeded: true
     },
     checkInterval: {
-        description: "How often to check for new sessions in the background (if enabled), in minutes",
+        description: "Как часто проверять новые сессии в фоновом режиме (если включено), в минутах",
         type: OptionType.NUMBER,
         default: 20,
         restartNeeded: true
@@ -53,7 +53,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "BetterSessions",
-    description: "Enhances the sessions (devices) menu. Allows you to view exact timestamps, give each session a custom name, and receive notifications about new sessions.",
+    description: "Улучшает меню сессий (устройств). Позволяет просматривать точные временные метки, давать каждой сессии индивидуальное имя и получать уведомления о новых сессиях.",
     authors: [Devs.amia],
 
     settings: settings,
@@ -170,7 +170,7 @@ export default definePlugin({
             savedSessionsCache.set(session.id_hash, { name: "", isNew: true });
             showNotification({
                 title: "BetterSessions",
-                body: `New session:\n${session.client_info.os} · ${session.client_info.platform} · ${session.client_info.location}`,
+                body: `Новая сессия:\n${session.client_info.os} · ${session.client_info.platform} · ${session.client_info.location}`,
                 permanent: true,
                 onClick: () => UserSettingsModal.open("Sessions")
             });

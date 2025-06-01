@@ -13,10 +13,10 @@ import Plugins from "~plugins";
 
 function onRestartNeeded() {
     Alerts.show({
-        title: "Restart required",
-        body: <p>You have changed settings that require a restart.</p>,
-        confirmText: "Restart now",
-        cancelText: "Later!",
+        title: "Требуется перезапуск",
+        body: <p>Вы изменили настройки, которые требуют перезапуска.</p>,
+        confirmText: "Перезапустить сейчас",
+        cancelText: "Позже!",
         onConfirm: () => location.reload()
     });
 }
@@ -49,7 +49,7 @@ export default function PluginsSubmenu() {
                         query={query}
                         onChange={setQuery}
                         ref={ref}
-                        placeholder={getIntlMessage("SEARCH")}
+                        placeholder={getIntlMessage("ПОИСК")}
                     />
                 )}
             />

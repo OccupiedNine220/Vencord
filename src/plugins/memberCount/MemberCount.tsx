@@ -55,7 +55,7 @@ export function MemberCount({ isTooltip, tooltipGuildId }: { isTooltip?: true; t
 
     return (
         <div className={cl("widget", { tooltip: isTooltip, "member-list": !isTooltip })}>
-            <Tooltip text={`${formattedOnlineCount} online in this channel`} position="bottom">
+            <Tooltip text={`${formattedOnlineCount} онлайн в этом канале`} position="bottom">
                 {props => (
                     <div {...props}>
                         <span className={cl("online-dot")} />
@@ -63,7 +63,7 @@ export function MemberCount({ isTooltip, tooltipGuildId }: { isTooltip?: true; t
                     </div>
                 )}
             </Tooltip>
-            <Tooltip text={`${numberFormat(totalCount)} total server members`} position="bottom">
+            <Tooltip text={`${numberFormat(totalCount)} участников на сервере`} position="bottom">
                 {props => (
                     <div {...props}>
                         <span className={cl("total-dot")} />

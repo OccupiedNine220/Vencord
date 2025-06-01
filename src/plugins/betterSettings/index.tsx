@@ -24,18 +24,18 @@ waitFor(["animating", "baseLayer", "bg", "layer", "layers"], m => Classes = m);
 
 const settings = definePluginSettings({
     disableFade: {
-        description: "Disable the crossfade animation",
+        description: "Отключить анимацию перехода",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     organizeMenu: {
-        description: "Organizes the settings cog context menu into categories",
+        description: "Организовать контекстное меню настроек в категории",
         type: OptionType.BOOLEAN,
         default: true
     },
     eagerLoad: {
-        description: "Removes the loading delay when opening the menu for the first time",
+        description: "Убрать задержку при открытии меню в первый раз",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
@@ -77,7 +77,7 @@ function Layer({ mode, baseLayer = false, ...props }: LayerProps) {
 
 export default definePlugin({
     name: "BetterSettings",
-    description: "Enhances your settings-menu-opening experience",
+    description: "Улучшает опыт открытия меню настроек",
     authors: [Devs.Kyuuhachi],
     settings,
 
