@@ -23,8 +23,8 @@
 
 1. Клонируйте репозиторий:
 ```bash
-git clone https://github.com/yourusername/vencord-russian.git
-cd vencord-russian
+git clone https://github.com/Occupiednine220/vencord-ru.git
+cd vencord-ru
 ```
 
 2. Установите зависимости:
