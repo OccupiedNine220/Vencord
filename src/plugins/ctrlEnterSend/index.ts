@@ -11,35 +11,35 @@ import definePlugin, { OptionType } from "@utils/types";
 export default definePlugin({
     name: "CtrlEnterSend",
     authors: [Devs.UlyssesZhan],
-    description: "Use Ctrl+Enter to send messages (customizable)",
+    description: "Используйте Ctrl+Enter для отправки сообщений (настраиваемо)",
     settings: definePluginSettings({
         submitRule: {
-            description: "The way to send a message",
+            description: "Способ отправки сообщения",
             type: OptionType.SELECT,
             options: [
                 {
-                    label: "Ctrl+Enter (Enter or Shift+Enter for new line) (cmd+enter on macOS)",
+                    label: "Ctrl+Enter (Enter или Shift+Enter для новой строки) (cmd+enter на macOS)",
                     value: "ctrl+enter"
                 },
                 {
-                    label: "Shift+Enter (Enter for new line)",
+                    label: "Shift+Enter (Enter для новой строки)",
                     value: "shift+enter"
                 },
                 {
-                    label: "Enter (Shift+Enter for new line; Discord default)",
+                    label: "Enter (Shift+Enter для новой строки; Discord default)",
                     value: "enter"
                 }
             ],
             default: "ctrl+enter"
         },
         sendMessageInTheMiddleOfACodeBlock: {
-            description: "Whether to send a message in the middle of a code block",
+            description: "Отправлять ли сообщение в середине блока кода",
             type: OptionType.BOOLEAN,
             default: true,
         }
     }),
     patches: [
-        // Only one of the two patches will be at effect; Discord often updates to switch between them.
+        // Только один из двух патчей будет в эффекте; Discord часто обновляется, чтобы переключаться между ними.
         // See: https://discord.com/channels/1015060230222131221/1032770730703716362/1261398512017477673
         {
             find: ".selectPreviousCommandOption(",

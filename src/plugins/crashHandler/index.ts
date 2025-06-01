@@ -43,12 +43,12 @@ const { ModalStack, DraftManager } = proxyLazyWebpack(() => {
 const settings = definePluginSettings({
     attemptToPreventCrashes: {
         type: OptionType.BOOLEAN,
-        description: "Whether to attempt to prevent Discord crashes.",
+        description: "Пытаться предотвратить сбои Discord.",
         default: true
     },
     attemptToNavigateToHome: {
         type: OptionType.BOOLEAN,
-        description: "Whether to attempt to navigate to the home when preventing Discord crashes.",
+        description: "Пытаться перейти на домашнюю страницу при предотвращении сбоев Discord.",
         default: false
     }
 });
@@ -59,7 +59,7 @@ let shouldAttemptRecover = true;
 
 export default definePlugin({
     name: "CrashHandler",
-    description: "Utility plugin for handling and possibly recovering from crashes without a restart",
+    description: "Утилита для обработки и возможно восстановления после сбоев без перезапуска",
     authors: [Devs.Nuckyz],
     enabledByDefault: true,
 
@@ -90,8 +90,8 @@ export default definePlugin({
                     try {
                         showNotification({
                             color: "#eed202",
-                            title: "Discord has crashed!",
-                            body: "Awn :( Discord has crashed two times rapidly, not attempting to recover.",
+                            title: "Discord упал!",
+                            body: "Упс :( Discord упал дважды быстро, не пытаюсь восстановиться.",
                             noPersist: true
                         });
                     } catch { }
@@ -107,7 +107,7 @@ export default definePlugin({
             try {
                 if (!hasCrashedOnce) {
                     hasCrashedOnce = true;
-                    maybePromptToUpdate("Uh oh, Discord has just crashed... but good news, there is a Vencord update available that might fix this issue! Would you like to update now?", true);
+                    maybePromptToUpdate("Упс, Discord только что упал... но хорошие новости, есть обновление Vencord, которое может исправить эту проблему! Хотите обновить сейчас?", true);
                 }
             } catch { }
 
@@ -116,7 +116,7 @@ export default definePlugin({
                     this.handlePreventCrash(_this);
                 }
             } catch (err) {
-                CrashHandlerLogger.error("Failed to handle crash", err);
+                CrashHandlerLogger.error("Не удалось обработать сбой", err);
             }
         }, 1);
     },
@@ -140,38 +140,38 @@ export default definePlugin({
                 DraftManager.clearDraft(channelId, DraftType[key]);
             }
         } catch (err) {
-            CrashHandlerLogger.debug("Failed to clear drafts.", err);
+            CrashHandlerLogger.debug("Не удалось очистить черновики.", err);
         }
         try {
             ExpressionPickerStore.closeExpressionPicker();
         }
         catch (err) {
-            CrashHandlerLogger.debug("Failed to close expression picker.", err);
+            CrashHandlerLogger.debug("Не удалось закрыть выражение picker.", err);
         }
         try {
             FluxDispatcher.dispatch({ type: "CONTEXT_MENU_CLOSE" });
         } catch (err) {
-            CrashHandlerLogger.debug("Failed to close open context menu.", err);
+            CrashHandlerLogger.debug("Не удалось закрыть открытое контекстное меню.", err);
         }
         try {
             ModalStack.popAll();
         } catch (err) {
-            CrashHandlerLogger.debug("Failed to close old modals.", err);
+            CrashHandlerLogger.debug("Не удалось закрыть старые модальные окна.", err);
         }
         try {
             closeAllModals();
         } catch (err) {
-            CrashHandlerLogger.debug("Failed to close all open modals.", err);
+            CrashHandlerLogger.debug("Не удалось закрыть все открытые модальные окна.", err);
         }
         try {
             FluxDispatcher.dispatch({ type: "USER_PROFILE_MODAL_CLOSE" });
         } catch (err) {
-            CrashHandlerLogger.debug("Failed to close user popout.", err);
+            CrashHandlerLogger.debug("Не удалось закрыть пользовательское окно.", err);
         }
         try {
             FluxDispatcher.dispatch({ type: "LAYER_POP_ALL" });
         } catch (err) {
-            CrashHandlerLogger.debug("Failed to pop all layers.", err);
+            CrashHandlerLogger.debug("Не удалось закрыть все слои.", err);
         }
         try {
             FluxDispatcher.dispatch({
@@ -179,14 +179,14 @@ export default definePlugin({
                 settings: { displayTools: false, lastOpenTabId: "analytics" }
             });
         } catch (err) {
-            CrashHandlerLogger.debug("Failed to close DevTools.", err);
+            CrashHandlerLogger.debug("Не удалось закрыть DevTools.", err);
         }
 
         if (settings.store.attemptToNavigateToHome) {
             try {
                 NavigationRouter.transitionToGuild("@me");
             } catch (err) {
-                CrashHandlerLogger.debug("Failed to navigate to home", err);
+                CrashHandlerLogger.debug("Не удалось перейти на домашнюю страницу", err);
             }
         }
 
@@ -196,7 +196,7 @@ export default definePlugin({
         try {
             _this.setState({ error: null, info: null });
         } catch (err) {
-            CrashHandlerLogger.debug("Failed to update crash handler component.", err);
+            CrashHandlerLogger.debug("Не удалось обновить компонент обработчика сбоев.", err);
         }
     }
 });
