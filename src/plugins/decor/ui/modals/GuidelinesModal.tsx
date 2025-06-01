@@ -25,7 +25,7 @@ function GuidelinesModal(props: ModalProps) {
                 tag="h1"
                 style={{ flexGrow: 1 }}
             >
-                Hold on
+                Подождите
             </Text>
             <ModalCloseButton onClick={props.onClose} />
         </ModalHeader>
@@ -33,11 +33,11 @@ function GuidelinesModal(props: ModalProps) {
             scrollbarType="none"
         >
             <Forms.FormText>
-                By submitting a decoration, you agree to <Link
+                Отправляя урашение, вы соглашаетесь с <Link
                     href="https://github.com/decor-discord/.github/blob/main/GUIDELINES.md"
                 >
-                    the guidelines
-                </Link>. Not reading these guidelines may get your account suspended from creating more decorations in the future.
+                    правилами
+                </Link>. Не прочитав эти правила, ваш аккаунт может быть заблокирован от создания большего количества урашений в будущем.
             </Forms.FormText>
         </ModalContent>
         <ModalFooter className={cl("modal-footer")}>
@@ -48,14 +48,14 @@ function GuidelinesModal(props: ModalProps) {
                     openCreateDecorationModal();
                 }}
             >
-                Continue
+                Продолжить
             </Button>
             <Button
                 onClick={props.onClose}
                 color={Button.Colors.PRIMARY}
                 look={Button.Looks.LINK}
             >
-                Go Back
+                Назад
             </Button>
         </ModalFooter>
     </ModalRoot>;

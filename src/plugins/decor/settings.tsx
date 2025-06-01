@@ -19,7 +19,7 @@ export const settings = definePluginSettings({
         type: OptionType.COMPONENT,
         component() {
             if (!Vencord.Plugins.plugins.Decor.started) return <Forms.FormText>
-                Enable Decor and restart your client to change your avatar decoration.
+                Включите Decor и перезапустите ваш клиент, чтобы изменить ваше аватарное урашение.
             </Forms.FormText>;
 
             return <div>
@@ -39,7 +39,7 @@ export const settings = definePluginSettings({
     },
     agreedToGuidelines: {
         type: OptionType.BOOLEAN,
-        description: "Agreed to guidelines",
+        description: "Согласен с правилами",
         hidden: true,
         default: false
     }

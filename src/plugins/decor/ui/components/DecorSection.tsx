@@ -44,7 +44,7 @@ export default function DecorSection({ hideTitle = false, hideDivider = false, n
                 }}
                 size={Button.Sizes.SMALL}
             >
-                Change Decoration
+                Изменить урашение
             </Button>
             {selectedDecoration && authorization.isAuthorized() && <Button
                 onClick={() => selectDecoration(null)}
@@ -52,7 +52,7 @@ export default function DecorSection({ hideTitle = false, hideDivider = false, n
                 size={Button.Sizes.SMALL}
                 look={Button.Looks.LINK}
             >
-                Remove Decoration
+                Удалить урашение
             </Button>}
         </Flex>
     </CustomizationSection>;

@@ -70,7 +70,7 @@ function CreateDecorationModal(props: ModalProps) {
                 tag="h1"
                 style={{ flexGrow: 1 }}
             >
-                Create Decoration
+                Создать урашение
             </Text>
             <ModalCloseButton onClick={props.onClose} />
         </ModalHeader>
@@ -80,11 +80,11 @@ function CreateDecorationModal(props: ModalProps) {
         >
             <ErrorBoundary>
                 <HelpMessage messageType={HelpMessageTypes.WARNING}>
-                    Make sure your decoration does not violate <Link
+                    Убедитесь, что ваше урашение не нарушает <Link
                         href="https://github.com/decor-discord/.github/blob/main/GUIDELINES.md"
                     >
-                        the guidelines
-                    </Link> before submitting it.
+                        правила
+                    </Link> перед отправкой.
                 </HelpMessage>
                 <div className={cl("create-decoration-modal-form-preview-container")}>
                     <div className={cl("create-decoration-modal-form")}>
@@ -92,13 +92,13 @@ function CreateDecorationModal(props: ModalProps) {
                         <Forms.FormSection title="File">
                             <FileUpload
                                 filename={file?.name}
-                                placeholder="Choose a file"
-                                buttonText="Browse"
+                                placeholder="Выберите файл"
+                                buttonText="Обзор"
                                 filters={[{ name: "Decoration file", extensions: ["png", "apng"] }]}
                                 onFileSelect={setFile}
                             />
                             <Forms.FormText type="description" className={Margins.top8}>
-                                File should be APNG or PNG.
+                                Файл должен быть APNG или PNG.
                             </Forms.FormText>
                         </Forms.FormSection>
                         <Forms.FormSection title="Name">
@@ -108,7 +108,7 @@ function CreateDecorationModal(props: ModalProps) {
                                 onChange={setName}
                             />
                             <Forms.FormText type="description" className={Margins.top8}>
-                                This name will be used when referring to this decoration.
+                                Это имя будет использоваться при упоминании этого урашения.
                             </Forms.FormText>
                         </Forms.FormSection>
                     </div>
@@ -120,7 +120,7 @@ function CreateDecorationModal(props: ModalProps) {
                     </div>
                 </div>
                 <HelpMessage messageType={HelpMessageTypes.INFO} className={Margins.bottom8}>
-                    To receive updates on your decoration's review, join <Link
+                    Чтобы получать обновления о вашем урашении, присоединитесь к <Link
                         href={`https://discord.gg/${INVITE_KEY}`}
                         onClick={async e => {
                             e.preventDefault();
@@ -137,8 +137,8 @@ function CreateDecorationModal(props: ModalProps) {
                             }
                         }}
                     >
-                        Decor's Discord server
-                    </Link> and allow direct messages.
+                        Discord сервер Decor
+                    </Link> и разрешите прямые сообщения.
                 </HelpMessage>
             </ErrorBoundary>
         </ModalContent>
@@ -152,7 +152,7 @@ function CreateDecorationModal(props: ModalProps) {
                 disabled={!file || !name}
                 submitting={submitting}
             >
-                Submit for Review
+                Отправить на рассмотрение
             </Button>
             <Button
                 onClick={props.onClose}

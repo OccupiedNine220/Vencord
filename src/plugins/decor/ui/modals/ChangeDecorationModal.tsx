@@ -125,8 +125,8 @@ function ChangeDecorationModal(props: ModalProps) {
 
     const data = [
         {
-            title: "Your Decorations",
-            subtitle: "You can delete your own decorations by right clicking on them.",
+            title: "Ваши аватарные урашения",
+            subtitle: "Вы можете удалить свои аватарные урашения, нажав на них правой кнопкой мыши.",
             sectionKey: "ownDecorations",
             items: ["none", ...ownDecorations, "create"]
         },
@@ -246,9 +246,9 @@ function ChangeDecorationModal(props: ModalProps) {
             <div className={cl("change-decoration-modal-footer-btn-container")}>
                 <Button
                     onClick={() => Alerts.show({
-                        title: "Log Out",
-                        body: "Are you sure you want to log out of Decor?",
-                        confirmText: "Log Out",
+                        title: "Выйти из Decor",
+                        body: "Вы уверены, что хотите выйти из Decor?",
+                        confirmText: "Выйти",
                         confirmColor: cl("danger-btn"),
                         cancelText: "Cancel",
                         onConfirm() {

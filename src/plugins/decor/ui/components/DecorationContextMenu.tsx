@@ -18,26 +18,26 @@ export default function DecorationContextMenu({ decoration }: { decoration: Deco
     return <Menu.Menu
         navId={cl("decoration-context-menu")}
         onClose={ContextMenuApi.closeContextMenu}
-        aria-label="Decoration Options"
+        aria-label="Опции урашения"
     >
         <Menu.MenuItem
             id={cl("decoration-context-menu-copy-hash")}
-            label="Copy Decoration Hash"
+            label="Скопировать хэш урашения"
             icon={CopyIcon}
             action={() => copyToClipboard(decoration.hash)}
         />
         {decoration.authorId === UserStore.getCurrentUser().id &&
             <Menu.MenuItem
                 id={cl("decoration-context-menu-delete")}
-                label="Delete Decoration"
+                label="Удалить урашение"
                 color="danger"
                 icon={DeleteIcon}
                 action={() => Alerts.show({
-                    title: "Delete Decoration",
-                    body: `Are you sure you want to delete ${decoration.alt}?`,
-                    confirmText: "Delete",
+                    title: "Удалить урашение",
+                    body: `Вы уверены, что хотите удалить ${decoration.alt}?`,
+                    confirmText: "Удалить",
                     confirmColor: cl("danger-btn"),
-                    cancelText: "Cancel",
+                    cancelText: "Отмена",
                     onConfirm() {
                         deleteDecoration(decoration);
                     }
