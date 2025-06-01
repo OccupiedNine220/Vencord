@@ -60,7 +60,7 @@ export async function getReviews(id: string, offset = 0): Promise<Response> {
     const res = (req.ok)
         ? await req.json() as Response
         : {
-            message: req.status === 429 ? "You are sending requests too fast. Wait a few seconds and try again." : "An Error occured while fetching reviews. Please try again later.",
+            message: req.status === 429 ? "Вы отправляете запросы слишком быстро. Подождите несколько секунд и попробуйте снова." : "Произошла ошибка при получении отзывов. Пожалуйста, попробуйте позже.",
             reviews: [],
             updated: false,
             hasNextPage: false,
@@ -97,7 +97,7 @@ export async function addReview(review: any): Promise<Response | null> {
 
     const token = await getToken();
     if (!token) {
-        showToast("Please authorize to add a review.");
+        showToast("Пожалуйста, авторизуйтесь, чтобы добавить отзыв.");
         authorize();
         return null;
     }

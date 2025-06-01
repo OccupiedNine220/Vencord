@@ -21,7 +21,7 @@ import definePlugin from "@utils/types";
 
 export default definePlugin({
     name: "F8Break",
-    description: "Pause the client when you press F8 with DevTools (+ breakpoints) open.",
+    description: "Приостанавливает клиент при нажатии F8 с открытыми DevTools (+ точек останова).",
     authors: [Devs.lewisakura],
 
     start() {
@@ -34,8 +34,8 @@ export default definePlugin({
 
     event(e: KeyboardEvent) {
         if (e.code === "F8") {
-            // Hi! You've just paused the client. Pressing F8 in DevTools or in the main window will unpause it again.
-            // It's up to you on what to do, friend. Happy travels!
+            // Привет! Вы только что приостановили клиент. Нажатие F8 в DevTools или в главном окне снова возобновит его.
+            // Это зависит от вас, друг. Счастливого путешествия!
             debugger;
         }
     }

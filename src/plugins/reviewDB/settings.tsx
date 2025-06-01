@@ -35,22 +35,22 @@ export const settings = definePluginSettings({
     },
     notifyReviews: {
         type: OptionType.BOOLEAN,
-        description: "Notify about new reviews on startup",
+        description: "Уведомлять о новых отзывах при запуске",
         default: true,
     },
     showWarning: {
         type: OptionType.BOOLEAN,
-        description: "Display warning to be respectful at the top of the reviews list",
+        description: "Отображать предупреждение о вежливости в верхней части списка отзывов",
         default: true,
     },
     hideTimestamps: {
         type: OptionType.BOOLEAN,
-        description: "Hide timestamps on reviews",
+        description: "Скрывать временные метки на отзывах",
         default: false,
     },
     hideBlockedUsers: {
         type: OptionType.BOOLEAN,
-        description: "Hide reviews from blocked users",
+        description: "Скрывать отзывы от заблокированных пользователей",
         default: true,
     },
     buttons: {

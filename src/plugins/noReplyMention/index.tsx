@@ -24,7 +24,7 @@ import type { Message } from "discord-types/general";
 const settings = definePluginSettings({
     userList: {
         description:
-            "List of users to allow or exempt pings for (separated by commas or spaces)",
+            "Список пользователей, для которых будет разрешено или исключено упоминание (разделенные запятыми или пробелами)",
         type: OptionType.STRING,
         default: "1234567890123445,1234567890123445",
     },
@@ -33,18 +33,18 @@ const settings = definePluginSettings({
         type: OptionType.SELECT,
         options: [
             {
-                label: "Do not ping the listed users",
+                label: "Не упоминать указанных пользователей",
                 value: false,
             },
             {
-                label: "Only ping the listed users",
+                label: "Упоминать указанных пользователей",
                 value: true,
                 default: true,
             },
         ],
     },
     inverseShiftReply: {
-        description: "Invert Discord's shift replying behaviour (enable to make shift reply mention user)",
+        description: "Инвертирует поведение Discord при нажатии Shift для упоминания пользователя (включить для упоминания пользователя при нажатии Shift)",
         type: OptionType.BOOLEAN,
         default: false,
     }
@@ -52,7 +52,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "NoReplyMention",
-    description: "Disables reply pings by default",
+    description: "Отключает упоминания в ответах по умолчанию",
     authors: [Devs.DustyAngel47, Devs.axyie, Devs.pylix, Devs.outfoxxed],
     settings,
 

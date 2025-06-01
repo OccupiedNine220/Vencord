@@ -18,7 +18,7 @@ const Patch: NavContextMenuPatchCallback = (children, { guild }: { guild: Guild;
     group?.push(
         <Menu.MenuItem
             id="vc-server-info"
-            label="Server Info"
+            label="Информация о сервере"
             action={() => openGuildInfoModal(guild)}
         />
     );
@@ -26,7 +26,7 @@ const Patch: NavContextMenuPatchCallback = (children, { guild }: { guild: Guild;
 
 export default definePlugin({
     name: "ServerInfo",
-    description: "Allows you to view info about a server",
+    description: "Позволяет просматривать информацию о сервере",
     authors: [Devs.Ven, Devs.Nuckyz],
     dependencies: ["DynamicImageModalAPI"],
     tags: ["guild", "info", "ServerProfile"],

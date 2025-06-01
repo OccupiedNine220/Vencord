@@ -13,7 +13,7 @@ import { FluxDispatcher } from "@webpack/common";
 
 const settings = definePluginSettings({
     idleTimeout: {
-        description: "Minutes before Discord goes idle (0 to disable auto-idle)",
+        description: "Минуты до того как Discord перейдет в режим ожидания (0 чтобы отключить режим ожидания)",
         type: OptionType.SLIDER,
         markers: makeRange(0, 60, 5),
         default: 10,
@@ -21,7 +21,7 @@ const settings = definePluginSettings({
         restartNeeded: true // Because of the setInterval patch
     },
     remainInIdle: {
-        description: "When you come back to Discord, remain idle until you confirm you want to go online",
+        description: "Когда вы вернетесь в Discord, оставайтесь в режиме ожидания до того как вы подтвердите что хотите выйти из АФК",
         type: OptionType.BOOLEAN,
         default: true
     }
@@ -29,7 +29,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "CustomIdle",
-    description: "Allows you to set the time before Discord goes idle (or disable auto-idle)",
+    description: "Позволяет вам установить время до того как Discord перейдет в режим ожидания (или отключить режим ожидания)",
     authors: [Devs.newwares],
     settings,
     patches: [
@@ -61,13 +61,13 @@ export default definePlugin({
             return;
         }
 
-        const backOnlineMessage = "Welcome back! Click the button to go online. Click the X to stay idle until reload.";
+        const backOnlineMessage = "С возращением! Нажмите кнопку чтоб выйти из АФК. Нажмите на X, чтобы оставаться в режиме ожидания до перезагрузки.";
         if (
             Notices.currentNotice?.[1] === backOnlineMessage ||
             Notices.noticesQueue.some(([, noticeMessage]) => noticeMessage === backOnlineMessage)
         ) return;
 
-        Notices.showNotice(backOnlineMessage, "Exit idle", () => {
+        Notices.showNotice(backOnlineMessage, "Выйти из АФК", () => {
             Notices.popNotice();
             FluxDispatcher.dispatch({
                 type: "IDLE",

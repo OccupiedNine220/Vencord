@@ -118,64 +118,64 @@ const hyperLinkRegex = /\[.+?\]\((https?:\/\/.+?)\)/;
 
 const settings = definePluginSettings({
     enableEmojiBypass: {
-        description: "Allows sending fake emojis (also bypasses missing permission to use custom emojis)",
+        description: "Разрешает отправку фейковых эмодзи (также обоходит отсутствие разрешения на использование пользовательских эмодзи)",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     emojiSize: {
-        description: "Size of the emojis when sending",
+        description: "Размер эмодзи при отправке",
         type: OptionType.SLIDER,
         default: 48,
         markers: [32, 48, 64, 128, 160, 256, 512]
     },
     transformEmojis: {
-        description: "Whether to transform fake emojis into real ones",
+        description: "Преобразует фейковые эмодзи в настоящие",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     enableStickerBypass: {
-        description: "Allows sending fake stickers (also bypasses missing permission to use stickers)",
+        description: "Разрешает отправку фейковых стикеров (также обоходит отсутствие разрешения на использование стикеров)",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     stickerSize: {
-        description: "Size of the stickers when sending",
+        description: "Размер стикеров при отправке",
         type: OptionType.SLIDER,
         default: 160,
         markers: [32, 64, 128, 160, 256, 512]
     },
     transformStickers: {
-        description: "Whether to transform fake stickers into real ones",
+        description: "Преобразует фейковые стикеры в настоящие",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     transformCompoundSentence: {
-        description: "Whether to transform fake stickers and emojis in compound sentences (sentences with more content than just the fake emoji or sticker link)",
+        description: "Преобразует фейковые стикеры и эмодзи в составные предложения (предложения с содержанием, отличным от ссылки на фейковый стикер или эмодзи)",
         type: OptionType.BOOLEAN,
         default: false
     },
     enableStreamQualityBypass: {
-        description: "Allow streaming in nitro quality",
+        description: "Разрешает стримить в качестве Nitro",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true
     },
     useHyperLinks: {
-        description: "Whether to use hyperlinks when sending fake emojis and stickers",
+        description: "Использует гиперссылки при отправке фейковых эмодзи и стикеров",
         type: OptionType.BOOLEAN,
         default: true
     },
     hyperLinkText: {
-        description: "What text the hyperlink should use. {{NAME}} will be replaced with the emoji/sticker name.",
+        description: "Текст гиперссылки, который будет использоваться. {{NAME}} будет заменен на имя эмодзи/стикера.",
         type: OptionType.STRING,
         default: "{{NAME}}"
     },
     disableEmbedPermissionCheck: {
-        description: "Whether to disable the embed permission check when sending fake emojis and stickers",
+        description: "Отключает проверку разрешения на встраивание при отправке фейковых эмодзи и стикеров",
         type: OptionType.BOOLEAN,
         default: false
     }
@@ -217,7 +217,7 @@ function makeBypassPatches(): Omit<Patch, "plugin"> {
 export default definePlugin({
     name: "FakeNitro",
     authors: [Devs.Arjix, Devs.D3SOX, Devs.Ven, Devs.fawn, Devs.captain, Devs.Nuckyz, Devs.AutumnVN],
-    description: "Allows you to stream in nitro quality, send fake emojis/stickers, use client themes and custom Discord notifications.",
+    description: "Разрешает стримить в качестве Nitro, отправлять фейковые эмодзи/стикеры, использовать клиентские темы и пользовательские уведомления Discord.",
     dependencies: ["MessageEventsAPI"],
 
     settings,
@@ -727,12 +727,12 @@ export default definePlugin({
 
         switch (type) {
             case FakeNoticeType.Sticker: {
-                node.push(" This is a FakeNitro sticker and renders like a real sticker only for you. Appears as a link to non-plugin users.");
+                node.push(" Это фейковый стикер Nitro и отображается как настоящий стикер только для вас. Появляется как ссылка для пользователей, не использующих плагин.");
 
                 return node;
             }
             case FakeNoticeType.Emoji: {
-                node.push(" This is a FakeNitro emoji and renders like a real emoji only for you. Appears as a link to non-plugin users.");
+                node.push(" Это фейковый эмодзи Nitro и отображается как настоящий эмодзи только для вас. Появляется как ссылка для пользователей, не использующих плагин.");
 
                 return node;
             }

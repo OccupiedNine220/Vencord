@@ -143,7 +143,7 @@ export function parseEditContent(content: string, message: Message) {
 
 export default definePlugin({
     name: "MessageLogger",
-    description: "Temporarily logs deleted and edited messages.",
+    description: "Временно регистрирует удаленные и отредактированные сообщения.",
     authors: [Devs.rushii, Devs.Ven, Devs.AutumnVN, Devs.Nickyux, Devs.Kyuuhachi],
     dependencies: ["MessageUpdaterAPI"],
 
@@ -195,58 +195,58 @@ export default definePlugin({
     options: {
         deleteStyle: {
             type: OptionType.SELECT,
-            description: "The style of deleted messages",
+            description: "Стиль удаленных сообщений",
             default: "text",
             options: [
-                { label: "Red text", value: "text", default: true },
-                { label: "Red overlay", value: "overlay" }
+                { label: "Красный текст", value: "text", default: true },
+                { label: "Красный фон", value: "overlay" }
             ],
             onChange: () => addDeleteStyle()
         },
         logDeletes: {
             type: OptionType.BOOLEAN,
-            description: "Whether to log deleted messages",
+            description: "Регистрировать удаленные сообщения",
             default: true,
         },
         collapseDeleted: {
             type: OptionType.BOOLEAN,
-            description: "Whether to collapse deleted messages, similar to blocked messages",
+            description: "Сворачивать удаленные сообщения, аналогично блокированным сообщениям",
             default: false,
             restartNeeded: true,
         },
         logEdits: {
             type: OptionType.BOOLEAN,
-            description: "Whether to log edited messages",
+            description: "Регистрировать отредактированные сообщения",
             default: true,
         },
         inlineEdits: {
             type: OptionType.BOOLEAN,
-            description: "Whether to display edit history as part of message content",
+            description: "Отображать историю редактирования в содержимом сообщения",
             default: true
         },
         ignoreBots: {
             type: OptionType.BOOLEAN,
-            description: "Whether to ignore messages by bots",
+            description: "Игнорировать сообщения от ботов",
             default: false
         },
         ignoreSelf: {
             type: OptionType.BOOLEAN,
-            description: "Whether to ignore messages by yourself",
+            description: "Игнорировать сообщения от самого себя",
             default: false
         },
         ignoreUsers: {
             type: OptionType.STRING,
-            description: "Comma-separated list of user IDs to ignore",
+            description: "Список ID пользователей, которые нужно игнорировать, разделенный запятыми",
             default: ""
         },
         ignoreChannels: {
             type: OptionType.STRING,
-            description: "Comma-separated list of channel IDs to ignore",
+            description: "Список ID каналов, которые нужно игнорировать, разделенный запятыми",
             default: ""
         },
         ignoreGuilds: {
             type: OptionType.STRING,
-            description: "Comma-separated list of guild IDs to ignore",
+            description: "Список ID серверов, которые нужно игнорировать, разделенный запятыми",
             default: ""
         },
     },

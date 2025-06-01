@@ -41,7 +41,7 @@ const guildPopoutPatch: NavContextMenuPatchCallback = (children, { guild }: { gu
     if (!guild) return;
     children.push(
         <Menu.MenuItem
-            label="View Reviews"
+            label="Просмотр отзывов"
             id="vc-rdb-server-reviews"
             icon={OpenExternalIcon}
             action={() => openReviewsModal(guild.id, guild.name, ReviewType.Server)}
@@ -53,7 +53,7 @@ const userContextPatch: NavContextMenuPatchCallback = (children, { user }: { use
     if (!user) return;
     children.push(
         <Menu.MenuItem
-            label="View Reviews"
+            label="Просмотр отзывов"
             id="vc-rdb-user-reviews"
             icon={OpenExternalIcon}
             action={() => openReviewsModal(user.id, user.username, ReviewType.User)}
@@ -63,7 +63,7 @@ const userContextPatch: NavContextMenuPatchCallback = (children, { user }: { use
 
 export default definePlugin({
     name: "ReviewDB",
-    description: "Review other users (Adds a new settings to profiles)",
+    description: "Просмотр отзывов других пользователей (Добавляет новые настройки в профили)",
     authors: [Devs.mantikafasi, Devs.Ven],
 
     settings,
@@ -119,7 +119,7 @@ export default definePlugin({
                 if (lastReviewId && lastReviewId < user.lastReviewID) {
                     s.lastReviewId = user.lastReviewID;
                     if (user.lastReviewID !== 0)
-                        showToast("You have new reviews on your profile!");
+                        showToast("У вас есть новые отзывы на вашем профиле!");
                 }
             }
 
@@ -155,7 +155,7 @@ export default definePlugin({
 
     BiteSizeReviewsButton: ErrorBoundary.wrap(({ user }: { user: User; }) => {
         return (
-            <TooltipContainer text="View Reviews">
+            <TooltipContainer text="Просмотр отзывов">
                 <Button
                     onClick={() => openReviewsModal(user.id, user.username, ReviewType.User)}
                     look={Button.Looks.FILLED}

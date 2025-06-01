@@ -19,6 +19,7 @@
 import { Settings } from "@api/Settings";
 import BackupAndRestoreTab from "@components/VencordSettings/BackupAndRestoreTab";
 import CloudTab from "@components/VencordSettings/CloudTab";
+import LanguageTab from "@components/VencordSettings/LanguageTab";
 import PatchHelperTab from "@components/VencordSettings/PatchHelperTab";
 import PluginsTab from "@components/VencordSettings/PluginsTab";
 import ThemesTab from "@components/VencordSettings/ThemesTab";
@@ -26,6 +27,7 @@ import UpdaterTab from "@components/VencordSettings/UpdaterTab";
 import VencordTab from "@components/VencordSettings/VencordTab";
 import { Devs } from "@utils/constants";
 import { getIntlMessage } from "@utils/discord";
+import { t } from "@utils/i18n";
 import definePlugin, { OptionType } from "@utils/types";
 import { React } from "@webpack/common";
 
@@ -97,27 +99,33 @@ export default definePlugin({
             },
             {
                 section: "VencordPlugins",
-                label: "Plugins",
+                label: t("VENCORD_PLUGINS"),
                 element: PluginsTab,
                 className: "vc-plugins"
             },
             {
                 section: "VencordThemes",
-                label: "Themes",
+                label: t("VENCORD_THEMES"),
                 element: ThemesTab,
                 className: "vc-themes"
             },
             !IS_UPDATER_DISABLED && {
                 section: "VencordUpdater",
-                label: "Updater",
+                label: t("VENCORD_UPDATER"),
                 element: UpdaterTab,
                 className: "vc-updater"
             },
             {
                 section: "VencordCloud",
-                label: "Cloud",
+                label: t("VENCORD_CLOUD"),
                 element: CloudTab,
                 className: "vc-cloud"
+            },
+            {
+                section: "VencordLanguage",
+                label: t("VENCORD_LANGUAGE"),
+                element: LanguageTab,
+                className: "vc-language"
             },
             {
                 section: "VencordSettingsSync",

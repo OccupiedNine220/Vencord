@@ -38,7 +38,7 @@ const altKey = isMacOS ? "opt" : "alt";
 const settings = definePluginSettings({
     toolbarDevMenu: {
         type: OptionType.BOOLEAN,
-        description: "Change the Help (?) toolbar button (top right in chat) to Discord's developer menu",
+        description: "Изменить кнопку справки (?) в верхнем правом углу чата на меню разработчика Discord",
         default: false,
         restartNeeded: true
     }
@@ -46,7 +46,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "Experiments",
-    description: "Enable Access to Experiments & other dev-only features in Discord!",
+    description: "Разрешить доступ к экспериментам и другим разработчикам в Discord!",
     authors: [
         Devs.Megu,
         Devs.Ven,
@@ -144,20 +144,20 @@ export default definePlugin({
 
     WarningCard: ErrorBoundary.wrap(() => (
         <ErrorCard id="vc-experiments-warning-card" className={Margins.bottom16}>
-            <Forms.FormTitle tag="h2">Hold on!!</Forms.FormTitle>
+            <Forms.FormTitle tag="h2">Подождите!!</Forms.FormTitle>
 
             <Forms.FormText>
-                Experiments are unreleased Discord features. They might not work, or even break your client or get your account disabled.
+                Эксперименты - это невыпущенные функции Discord. Они могут не работать или даже сломать ваш клиент или заблокировать ваш аккаунт.
             </Forms.FormText>
 
             <Forms.FormText className={Margins.top8}>
-                Only use experiments if you know what you're doing. Vencord is not responsible for any damage caused by enabling experiments.
+                Используйте эксперименты только если вы знаете, что делаете. Vencord не несет ответственности за любые повреждения, вызванные включением экспериментов.
 
-                If you don't know what an experiment does, ignore it. Do not ask us what experiments do either, we probably don't know.
+                Если вы не знаете, что делает эксперимент, игнорируйте его. Не спрашивайте нас, что делают эксперименты, мы, вероятно, не знаем.
             </Forms.FormText>
 
             <Forms.FormText className={Margins.top8}>
-                No, you cannot use server-side features like checking the "Send to Client" box.
+                Нет, вы не можете использовать серверные функции, такие как проверка "Отправить на клиент" в поле.
             </Forms.FormText>
         </ErrorCard>
     ), { noop: true })

@@ -61,13 +61,13 @@ export function authorize(callback?: any) {
 
                     if (!res.ok) {
                         const { message } = await res.json();
-                        showToast(message || "An error occured while authorizing", Toasts.Type.FAILURE);
+                        showToast(message || "Произошла ошибка при авторизации", Toasts.Type.FAILURE);
                         return;
                     }
 
                     const { token } = await res.json();
                     updateAuth({ token });
-                    showToast("Successfully logged in!", Toasts.Type.SUCCESS);
+                    showToast("Успешно авторизовались!", Toasts.Type.SUCCESS);
                     callback?.();
                 } catch (e) {
                     new Logger("ReviewDB").error("Failed to authorize", e);

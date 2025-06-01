@@ -83,80 +83,80 @@ const enum TimestampMode {
 const settings = definePluginSettings({
     appID: {
         type: OptionType.STRING,
-        description: "Application ID (required)",
+        description: "ID приложения (обязательное поле)",
         onChange: onChange,
         isValid: (value: string) => {
-            if (!value) return "Application ID is required.";
-            if (value && !/^\d+$/.test(value)) return "Application ID must be a number.";
+            if (!value) return "Требуется ID приложения.";
+            if (value && !/^\d+$/.test(value)) return "ID приложения должен быть числом.";
             return true;
         }
     },
     appName: {
         type: OptionType.STRING,
-        description: "Application name (required)",
+        description: "Имя приложения (обязательное поле)",
         onChange: onChange,
         isValid: (value: string) => {
-            if (!value) return "Application name is required.";
-            if (value.length > 128) return "Application name must be not longer than 128 characters.";
+            if (!value) return "Требуется имя приложения.";
+            if (value.length > 128) return "Имя приложения должно быть не длиннее 128 символов.";
             return true;
         }
     },
     details: {
         type: OptionType.STRING,
-        description: "Details (line 1)",
+        description: "Детали (первая строка)",
         onChange: onChange,
         isValid: (value: string) => {
-            if (value && value.length > 128) return "Details (line 1) must be not longer than 128 characters.";
+            if (value && value.length > 128) return "Детали (первая строка) должны быть не длиннее 128 символов.";
             return true;
         }
     },
     state: {
         type: OptionType.STRING,
-        description: "State (line 2)",
+        description: "Состояние (вторая строка)",
         onChange: onChange,
         isValid: (value: string) => {
-            if (value && value.length > 128) return "State (line 2) must be not longer than 128 characters.";
+            if (value && value.length > 128) return "Состояние (вторая строка) должно быть не длиннее 128 символов.";
             return true;
         }
     },
     type: {
         type: OptionType.SELECT,
-        description: "Activity type",
+        description: "Тип активности",
         onChange: onChange,
         options: [
             {
-                label: "Playing",
+                label: "Играю",
                 value: ActivityType.PLAYING,
                 default: true
             },
             {
-                label: "Streaming",
+                label: "Стримлю",
                 value: ActivityType.STREAMING
             },
             {
-                label: "Listening",
+                label: "Слушает",
                 value: ActivityType.LISTENING
             },
             {
-                label: "Watching",
+                label: "Смотрит",
                 value: ActivityType.WATCHING
             },
             {
-                label: "Competing",
+                label: "Соревнуется",
                 value: ActivityType.COMPETING
             }
         ]
     },
     streamLink: {
         type: OptionType.STRING,
-        description: "Twitch.tv or Youtube.com link (only for Streaming activity type)",
+        description: "Ссылка на Twitch.tv или Youtube.com (только для типа активности Стримлю)",
         onChange: onChange,
         disabled: isStreamLinkDisabled,
         isValid: isStreamLinkValid
     },
     timestampMode: {
         type: OptionType.SELECT,
-        description: "Timestamp mode",
+        description: "Режим временной метки",
         onChange: onChange,
         options: [
             {
@@ -180,57 +180,57 @@ const settings = definePluginSettings({
     },
     startTime: {
         type: OptionType.NUMBER,
-        description: "Start timestamp in milliseconds (only for custom timestamp mode)",
+        description: "Временная метка в миллисекундах (только для режима временной метки)",
         onChange: onChange,
         disabled: isTimestampDisabled,
         isValid: (value: number) => {
-            if (value && value < 0) return "Start timestamp must be greater than 0.";
+            if (value && value < 0) return "Временная метка должна быть больше 0.";
             return true;
         }
     },
     endTime: {
         type: OptionType.NUMBER,
-        description: "End timestamp in milliseconds (only for custom timestamp mode)",
+        description: "Временная метка в миллисекундах (только для режима временной метки)",
         onChange: onChange,
         disabled: isTimestampDisabled,
         isValid: (value: number) => {
-            if (value && value < 0) return "End timestamp must be greater than 0.";
+            if (value && value < 0) return "Временная метка должна быть больше 0.";
             return true;
         }
     },
     imageBig: {
         type: OptionType.STRING,
-        description: "Big image key/link",
+        description: "Большая картинка (ключ/ссылка)",
         onChange: onChange,
         isValid: isImageKeyValid
     },
     imageBigTooltip: {
         type: OptionType.STRING,
-        description: "Big image tooltip",
+        description: "Подсказка большой картинки",
         onChange: onChange,
         isValid: (value: string) => {
-            if (value && value.length > 128) return "Big image tooltip must be not longer than 128 characters.";
+            if (value && value.length > 128) return "Подсказка большой картинки должна быть не длиннее 128 символов.";
             return true;
         }
     },
     imageSmall: {
         type: OptionType.STRING,
-        description: "Small image key/link",
+        description: "Маленькая картинка (ключ/ссылка)",
         onChange: onChange,
         isValid: isImageKeyValid
     },
     imageSmallTooltip: {
         type: OptionType.STRING,
-        description: "Small image tooltip",
+        description: "Подсказка маленькой картинки",
         onChange: onChange,
         isValid: (value: string) => {
-            if (value && value.length > 128) return "Small image tooltip must be not longer than 128 characters.";
+            if (value && value.length > 128) return "Подсказка маленькой картинки должна быть не длиннее 128 символов.";
             return true;
         }
     },
     buttonOneText: {
         type: OptionType.STRING,
-        description: "Button 1 text",
+        description: "Текст кнопки 1",
         onChange: onChange,
         isValid: (value: string) => {
             if (value && value.length > 31) return "Button 1 text must be not longer than 31 characters.";
@@ -239,21 +239,21 @@ const settings = definePluginSettings({
     },
     buttonOneURL: {
         type: OptionType.STRING,
-        description: "Button 1 URL",
+        description: "Ссылка на кнопку 1",
         onChange: onChange
     },
     buttonTwoText: {
         type: OptionType.STRING,
-        description: "Button 2 text",
+        description: "Текст кнопки 2",
         onChange: onChange,
         isValid: (value: string) => {
-            if (value && value.length > 31) return "Button 2 text must be not longer than 31 characters.";
+            if (value && value.length > 31) return "Текст кнопки 2 должен быть не длиннее 31 символов.";
             return true;
         }
     },
     buttonTwoURL: {
         type: OptionType.STRING,
-        description: "Button 2 URL",
+        description: "Ссылка на кнопку 2",
         onChange: onChange
     }
 });
@@ -268,8 +268,8 @@ function isStreamLinkDisabled() {
 }
 
 function isStreamLinkValid(value: string) {
-    if (!isStreamLinkDisabled() && !/https?:\/\/(www\.)?(twitch\.tv|youtube\.com)\/\w+/.test(value)) return "Streaming link must be a valid URL.";
-    if (value && value.length > 512) return "Streaming link must be not longer than 512 characters.";
+    if (!isStreamLinkDisabled() && !/https?:\/\/(www\.)?(twitch\.tv|youtube\.com)\/\w+/.test(value)) return "Ссылка на стрим должна быть валидной URL.";
+    if (value && value.length > 512) return "Ссылка на стрим должна быть не длиннее 512 символов.";
     return true;
 }
 
@@ -278,9 +278,9 @@ function isTimestampDisabled() {
 }
 
 function isImageKeyValid(value: string) {
-    if (/https?:\/\/(cdn|media)\.discordapp\.(com|net)\//.test(value)) return "Don't use a Discord link. Use an Imgur image link instead.";
-    if (/https?:\/\/(?!i\.)?imgur\.com\//.test(value)) return "Imgur link must be a direct link to the image (e.g. https://i.imgur.com/...). Right click the image and click 'Copy image address'";
-    if (/https?:\/\/(?!media\.)?tenor\.com\//.test(value)) return "Tenor link must be a direct link to the image (e.g. https://media.tenor.com/...). Right click the GIF and click 'Copy image address'";
+    if (/https?:\/\/(cdn|media)\.discordapp\.(com|net)\//.test(value)) return "Не используйте ссылку на Discord. Используйте ссылку на изображение Imgur вместо этого.";
+    if (/https?:\/\/(?!i\.)?imgur\.com\//.test(value)) return "Ссылка на Imgur должна быть прямой ссылкой на изображение (например, https://i.imgur.com/...). Нажмите правой кнопкой мыши на изображение и выберите 'Копировать адрес изображения'";
+    if (/https?:\/\/(?!media\.)?tenor\.com\//.test(value)) return "Ссылка на Tenor должна быть прямой ссылкой на изображение (например, https://media.tenor.com/...). Нажмите правой кнопкой мыши на GIF и выберите 'Копировать адрес изображения'";
     return true;
 }
 
@@ -392,7 +392,7 @@ async function setRpc(disable?: boolean) {
 
 export default definePlugin({
     name: "CustomRPC",
-    description: "Add a fully customisable Rich Presence (Game status) to your Discord profile",
+    description: "Добавьте полностью настраиваемый Rich Presence (статус игры) в ваш профиль Discord",
     authors: [Devs.captain, Devs.AutumnVN, Devs.nin0dev],
     dependencies: ["UserSettingsAPI"],
     start: setRpc,

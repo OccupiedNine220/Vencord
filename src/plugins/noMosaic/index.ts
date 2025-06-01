@@ -10,7 +10,7 @@ import definePlugin, { OptionType } from "@utils/types";
 
 const settings = definePluginSettings({
     inlineVideo: {
-        description: "Play videos without carousel modal",
+        description: "Воспроизводить видео без модального окна карусели",
         type: OptionType.BOOLEAN,
         default: true,
         restartNeeded: true

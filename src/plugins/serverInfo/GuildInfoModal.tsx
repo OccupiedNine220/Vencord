@@ -192,15 +192,15 @@ function ServerInfoTab({ guild }: GuildProps) {
     });
 
     const Fields = {
-        "Server Owner": owner ? Owner(guild.id, owner) : "Loading...",
-        "Created At": renderTimestamp(SnowflakeUtils.extractTimestamp(guild.id)),
-        "Joined At": guild.joinedAt ? renderTimestamp(guild.joinedAt.getTime()) : "-", // Not available in lurked guild
-        "Vanity Link": guild.vanityURLCode ? (<a>{`discord.gg/${guild.vanityURLCode}`}</a>) : "-", // Making the anchor href valid would cause Discord to reload
-        "Preferred Locale": guild.preferredLocale || "-",
-        "Verification Level": ["None", "Low", "Medium", "High", "Highest"][guild.verificationLevel] || "?",
+        "Владелец сервера": owner ? Owner(guild.id, owner) : "Загрузка...",
+        "Создан": renderTimestamp(SnowflakeUtils.extractTimestamp(guild.id)),
+        "Присоединен": guild.joinedAt ? renderTimestamp(guild.joinedAt.getTime()) : "-", // Not available in lurked guild
+        "Ссылка на сервер": guild.vanityURLCode ? (<a>{`discord.gg/${guild.vanityURLCode}`}</a>) : "-", // Making the anchor href valid would cause Discord to reload
+        "Предпочитаемый язык": guild.preferredLocale || "-",
+        "Уровень верификации": ["None", "Low", "Medium", "High", "Highest"][guild.verificationLevel] || "?",
         "Nitro Boosts": `${guild.premiumSubscriberCount ?? 0} (Level ${guild.premiumTier ?? 0})`,
-        "Channels": GuildChannelStore.getChannels(guild.id)?.count - 1 || "?", // - null category
-        "Roles": Object.keys(GuildStore.getRoles(guild.id)).length - 1, // - @everyone
+        "Каналы": GuildChannelStore.getChannels(guild.id)?.count - 1 || "?", // - null category
+        "Роли": Object.keys(GuildStore.getRoles(guild.id)).length - 1, // - @everyone
     };
 
     return (

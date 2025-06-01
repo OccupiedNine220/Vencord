@@ -31,6 +31,8 @@ import "./webpack/patchWebpack";
 
 import { openUpdaterModal } from "@components/VencordSettings/UpdaterTab";
 import { StartAt } from "@utils/types";
+import { initLocalization } from "@utils/i18n";
+import initPluginsTranslations from "@utils/pluginsTranslations";
 
 import { get as dsGet } from "./api/DataStore";
 import { NotificationData, showNotification } from "./api/Notifications";
@@ -43,8 +45,10 @@ import { checkForUpdates, update, UpdateLogger } from "./utils/updater";
 import { onceReady } from "./webpack";
 import { SettingsRouter } from "./webpack/common";
 
+// Используем динамический импорт для debug/runReporter
+let runReporterPromise: Promise<any> | null = null;
 if (IS_REPORTER) {
-    require("./debug/runReporter");
+    runReporterPromise = import("./debug/runReporter");
 }
 
 async function syncSettings() {
@@ -128,6 +132,12 @@ async function runUpdateCheck() {
 
 async function init() {
     await onceReady;
+
+    // Инициализация системы локализации
+    initLocalization();
+    // Инициализация переводов плагинов
+    initPluginsTranslations();
+
     startAllPlugins(StartAt.WebpackReady);
 
     syncSettings();
