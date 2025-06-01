@@ -10,13 +10,13 @@ import definePlugin, { OptionType } from "@utils/types";
 
 const settings = definePluginSettings({
     shownEmojis: {
-        description: "The types of emojis to show in the autocomplete menu.",
+        description: "Типы эмодзи, которые будут отображаться в меню автозаполнения.",
         type: OptionType.SELECT,
         default: "onlyUnicode",
         options: [
-            { label: "Only unicode emojis", value: "onlyUnicode" },
-            { label: "Unicode emojis and server emojis from current server", value: "currentServer" },
-            { label: "Unicode emojis and all server emojis (Discord default)", value: "all" }
+            { label: "Только юникодные эмодзи", value: "onlyUnicode" },
+            { label: "Юникодные эмодзи и эмодзи сервера, на котором вы находитесь", value: "currentServer" },
+            { label: "Юникодные эмодзи и все эмодзи сервера (по умолчанию)", value: "all" }
         ]
     }
 });
@@ -24,7 +24,7 @@ const settings = definePluginSettings({
 export default definePlugin({
     name: "NoServerEmojis",
     authors: [Devs.UlyssesZhan],
-    description: "Do not show server emojis in the autocomplete menu.",
+    description: "Не показывать эмодзи сервера в меню автозаполнения.",
     settings,
     patches: [
         {

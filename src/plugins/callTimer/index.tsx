@@ -48,7 +48,7 @@ function formatDuration(ms: number) {
 
 export default definePlugin({
     name: "CallTimer",
-    description: "Adds a timer to vcs",
+    description: "Добавляет таймер в чат",
     authors: [Devs.Ven],
 
     startTime: 0,
@@ -57,7 +57,7 @@ export default definePlugin({
     options: {
         format: {
             type: OptionType.SELECT,
-            description: "The timer format. This can be any valid moment.js format",
+            description: "Формат таймера. Это может быть любой допустимый формат moment.js",
             options: [
                 {
                     label: "30d 23:00:42",

@@ -24,13 +24,13 @@ import definePlugin, { OptionType } from "@utils/types";
 const settings = definePluginSettings({
     hide: {
         type: OptionType.BOOLEAN,
-        description: "Hide notes",
+        description: "Скрыть заметки",
         default: false,
         restartNeeded: true
     },
     noSpellCheck: {
         type: OptionType.BOOLEAN,
-        description: "Disable spellcheck in notes",
+        description: "Отключить проверку орфографии в заметках",
         disabled: () => Settings.plugins.BetterNotesBox.hide,
         default: false
     }
@@ -38,7 +38,7 @@ const settings = definePluginSettings({
 
 export default definePlugin({
     name: "BetterNotesBox",
-    description: "Hide notes or disable spellcheck (Configure in settings!!)",
+    description: "Скрыть заметки или отключить проверку орфографии (Конфигурация в настройках!!)",
     authors: [Devs.Ven],
     settings,
 

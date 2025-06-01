@@ -40,20 +40,20 @@ export const enum PinOrder {
 export const settings = definePluginSettings({
     pinOrder: {
         type: OptionType.SELECT,
-        description: "Which order should pinned DMs be displayed in?",
+        description: "В каком порядке должны отображаться закрепленные DM?",
         options: [
-            { label: "Most recent message", value: PinOrder.LastMessage, default: true },
-            { label: "Custom (right click channels to reorder)", value: PinOrder.Custom }
+            { label: "Последнее сообщение", value: PinOrder.LastMessage, default: true },
+            { label: "Пользовательский (правая кнопка мыши на каналах для перемещения)", value: PinOrder.Custom }
         ]
     },
     canCollapseDmSection: {
         type: OptionType.BOOLEAN,
-        description: "Allow uncategorised DMs section to be collapsable",
+        description: "Разрешить скрывать раздел некатегоризированных DM",
         default: false
     },
     dmSectionCollapsed: {
         type: OptionType.BOOLEAN,
-        description: "Collapse DM section",
+        description: "Скрыть раздел DM",
         default: false,
         hidden: true
     },
@@ -65,7 +65,7 @@ export const settings = definePluginSettings({
 
 export default definePlugin({
     name: "PinDMs",
-    description: "Allows you to pin private channels to the top of your DM list. To pin/unpin or re-order pins, right click DMs",
+    description: "Позволяет закреплять приватные каналы в начале списка DM. Для закрепления/открепления или перемещения закрепленных каналов, используйте правую кнопку мыши на каналах",
     authors: [Devs.Ven, Devs.Aria],
     settings,
     contextMenus,

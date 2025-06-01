@@ -24,14 +24,14 @@ import { ChannelStore, PermissionsBits, PermissionStore } from "@webpack/common"
 export default definePlugin({
     name: "QuickMention",
     authors: [Devs.kemo],
-    description: "Adds a quick mention button to the message actions bar",
+    description: "Добавляет кнопку быстрого упоминания в панель действий сообщения",
 
     renderMessagePopoverButton(msg) {
         const channel = ChannelStore.getChannel(msg.channel_id);
         if (channel.guild_id && !PermissionStore.can(PermissionsBits.SEND_MESSAGES, channel)) return null;
 
         return {
-            label: "Quick Mention",
+            label: "Быстрый пинг",
             icon: this.Icon,
             message: msg,
             channel,

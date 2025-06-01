@@ -82,45 +82,45 @@ function filterTreeWithTargetNode(children: any, predicate: (node: any) => boole
 export const settings = definePluginSettings({
     sidebar: {
         type: OptionType.BOOLEAN,
-        description: "Display servers from folder on dedicated sidebar",
+        description: "Показывать сервера из папки на отдельной боковой панели",
         restartNeeded: true,
         default: true
     },
     sidebarAnim: {
         type: OptionType.BOOLEAN,
-        description: "Animate opening the folder sidebar",
+        description: "Анимация открытия боковой папки",
         default: true
     },
     closeAllFolders: {
         type: OptionType.BOOLEAN,
-        description: "Close all folders when selecting a server not in a folder",
+        description: "Закрывать все папки при выборе сервера не из папки",
         default: false
     },
     closeAllHomeButton: {
         type: OptionType.BOOLEAN,
-        description: "Close all folders when clicking on the home button",
+        description: "Закрывать все папки при нажатии на кнопку дома",
         restartNeeded: true,
         default: false
     },
     closeOthers: {
         type: OptionType.BOOLEAN,
-        description: "Close other folders when opening a folder",
+        description: "Закрывать другие папки при открытии папки",
         default: false
     },
     forceOpen: {
         type: OptionType.BOOLEAN,
-        description: "Force a folder to open when switching to a server of that folder",
+        description: "Принудительно открывать папку при переключении на сервер из этой папки",
         default: false
     },
     keepIcons: {
         type: OptionType.BOOLEAN,
-        description: "Keep showing guild icons in the primary guild bar folder when it's open in the BetterFolders sidebar",
+        description: "Показывать иконки серверов в основной панели серверов, когда она открыта в боковой панели BetterFolders",
         restartNeeded: true,
         default: false
     },
     showFolderIcon: {
         type: OptionType.SELECT,
-        description: "Show the folder icon above the folder guilds in the BetterFolders sidebar",
+        description: "Показывать иконку папки над серверами в папке в боковой панели BetterFolders",
         options: [
             { label: "Never", value: FolderIconDisplay.Never },
             { label: "Always", value: FolderIconDisplay.Always, default: true },
@@ -136,7 +136,7 @@ const GRID_STYLE_NAME = "vc-betterFolders-sidebar-grid";
 
 export default definePlugin({
     name: "BetterFolders",
-    description: "Shows server folders on dedicated sidebar and adds folder related improvements",
+    description: "Показывает папки серверов на отдельной боковой панели и добавляет улучшения, связанные с папками",
     authors: [Devs.juby, Devs.AutumnVN, Devs.Nuckyz],
 
     settings,

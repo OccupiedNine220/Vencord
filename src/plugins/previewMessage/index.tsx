@@ -86,7 +86,7 @@ const PreviewButton: ChatBarButtonFactory = ({ isMainChat, isEmpty, type: { atta
 
     return (
         <ChatBarButton
-            tooltip="Preview Message"
+            tooltip="Предварительный просмотр сообщения"
             onClick={async () =>
                 sendBotMessage(
                     channelId,
@@ -119,7 +119,7 @@ const PreviewButton: ChatBarButtonFactory = ({ isMainChat, isEmpty, type: { atta
 
 export default definePlugin({
     name: "PreviewMessage",
-    description: "Lets you preview your message before sending it.",
+    description: "Позволяет предварительно просмотреть ваше сообщение перед отправкой.",
     authors: [Devs.Aria],
     // start early to ensure we're the first plugin to add our button
     // This makes the popping in less awkward

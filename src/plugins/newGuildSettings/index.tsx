@@ -39,12 +39,12 @@ const isOptInEnabledForGuild = findByCodeLazy(".COMMUNITY)||", ".isOptInEnabled(
 
 const settings = definePluginSettings({
     guild: {
-        description: "Mute Guild automatically",
+        description: "Автоматически заглушать сервер",
         type: OptionType.BOOLEAN,
         default: true
     },
     messages: {
-        description: "Server Notification Settings",
+        description: "Настройки уведомлений сервера",
         type: OptionType.SELECT,
         options: [
             { label: "All messages", value: 0 },
@@ -54,27 +54,27 @@ const settings = definePluginSettings({
         ],
     },
     everyone: {
-        description: "Suppress @everyone and @here",
+        description: "Автоматически отключать уведомления о всех упоминаниях @everyone и @here",
         type: OptionType.BOOLEAN,
         default: true
     },
     role: {
-        description: "Suppress All Role @mentions",
+        description: "Автоматически отключать уведомления о всех ролевых упоминаниях",
         type: OptionType.BOOLEAN,
         default: true
     },
     highlights: {
-        description: "Suppress Highlights automatically",
+        description: "Автоматически отключать уведомления о важных событиях",
         type: OptionType.BOOLEAN,
         default: true
     },
     events: {
-        description: "Mute New Events automatically",
+        description: "Автоматически отключать уведомления о новых событиях",
         type: OptionType.BOOLEAN,
         default: true
     },
     showAllChannels: {
-        description: "Show all channels automatically",
+        description: "Показывать все каналы автоматически",
         type: OptionType.BOOLEAN,
         default: true
     }
@@ -117,7 +117,7 @@ function applyDefaultSettings(guildId: string | null) {
 
 export default definePlugin({
     name: "NewGuildSettings",
-    description: "Automatically mute new servers and change various other settings upon joining",
+    description: "Автоматически отключает уведомления на новых серверах и изменяет другие настройки при присоединении",
     tags: ["MuteNewGuild", "mute", "server"],
     authors: [Devs.Glitch, Devs.Nuckyz, Devs.carince, Devs.Mopi, Devs.GabiRP],
     contextMenus: {
