@@ -40,10 +40,10 @@ const enum MentionOptions {
 const settings = definePluginSettings({
     shouldMention: {
         type: OptionType.SELECT,
-        description: "Ping reply by default",
+        description: "Упоминать ответ по умолчанию",
         options: [
             {
-                label: "Follow NoReplyMention",
+                label: "Следовать NoReplyMention",
                 value: MentionOptions.NO_REPLY_MENTION_PLUGIN,
                 default: true
             },
@@ -56,7 +56,7 @@ const settings = definePluginSettings({
 export default definePlugin({
     name: "QuickReply",
     authors: [Devs.fawn, Devs.Ven, Devs.pylix],
-    description: "Reply to (ctrl + up/down) and edit (ctrl + shift + up/down) messages via keybinds",
+    description: "Отвечать на (ctrl + up/down) и редактировать (ctrl + shift + up/down) сообщения с помощью комбинаций клавиш",
     settings,
 
     start() {

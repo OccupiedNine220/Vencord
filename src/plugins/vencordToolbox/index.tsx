@@ -65,20 +65,20 @@ function VencordPopout(onClose: () => void) {
         >
             <Menu.MenuItem
                 id="vc-toolbox-notifications"
-                label="Open Notification Log"
+                label="Открыть журнал уведомлений"
                 action={openNotificationLogModal}
             />
             <Menu.MenuCheckboxItem
                 id="vc-toolbox-quickcss-toggle"
                 checked={useQuickCss}
-                label={"Enable QuickCSS"}
+                label={"Включить QuickCSS"}
                 action={() => {
                     Settings.useQuickCss = !useQuickCss;
                 }}
             />
             <Menu.MenuItem
                 id="vc-toolbox-quickcss"
-                label="Open QuickCSS"
+                label="Открыть QuickCSS"
                 action={() => VencordNative.quickCss.openEditor()}
             />
             {...pluginEntries}
@@ -135,7 +135,7 @@ function ToolboxFragmentWrapper({ children }: { children: ReactNode[]; }) {
 
 export default definePlugin({
     name: "VencordToolbox",
-    description: "Adds a button next to the inbox button in the channel header that houses Vencord quick actions",
+    description: "Добавляет кнопку рядом с кнопкой входящих сообщений в заголовке канала, которая содержит быстрые действия Vencord",
     authors: [Devs.Ven, Devs.AutumnVN],
 
     patches: [

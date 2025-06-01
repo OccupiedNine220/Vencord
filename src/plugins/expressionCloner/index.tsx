@@ -143,7 +143,7 @@ function getGuildCandidates(data: Data) {
 async function fetchBlob(url: string) {
     const res = await fetch(url);
     if (!res.ok)
-        throw new Error(`Failed to fetch ${url} - ${res.status}`);
+        throw new Error(`Не удалось получить ${url} - ${res.status}`);
 
     return res.blob();
 }
@@ -156,19 +156,19 @@ async function doClone(guildId: string, data: Sticker | Emoji) {
             await cloneEmoji(guildId, data);
 
         Toasts.show({
-            message: `Successfully cloned ${data.name} to ${GuildStore.getGuild(guildId)?.name ?? "your server"}!`,
+            message: `Успешно скопировано ${data.name} на ${GuildStore.getGuild(guildId)?.name ?? "ваш сервер"}!`,
             type: Toasts.Type.SUCCESS,
             id: Toasts.genId()
         });
     } catch (e: any) {
-        let message = "Something went wrong (check console!)";
+        let message = "Что-то пошло не так (проверьте консоль!)";
         try {
             message = JSON.parse(e.text).message;
         } catch { }
 
         new Logger("ExpressionCloner").error("Failed to clone", data.name, "to", guildId, e);
         Toasts.show({
-            message: "Failed to clone: " + message,
+            message: "Не удалось скопировать: " + message,
             type: Toasts.Type.FAILURE,
             id: Toasts.genId()
         });
@@ -203,7 +203,7 @@ function CloneModal({ data }: { data: Sticker | Emoji; }) {
                 validate={v =>
                     (data.t === "Emoji" && v.length > 2 && v.length < 32 && nameValidator.test(v))
                     || (data.t === "Sticker" && v.length > 2 && v.length < 30)
-                    || "Name must be between 2 and 32 characters and only contain alphanumeric characters"
+                    || "Имя должно быть между 2 и 32 символами и содержать только буквенно-цифровые символы"
                 }
             />
             <div style={{
@@ -368,7 +368,7 @@ const expressionPickerPatch: NavContextMenuPatchCallback = (children, props: { t
 migratePluginSettings("ExpressionCloner", "EmoteCloner");
 export default definePlugin({
     name: "ExpressionCloner",
-    description: "Allows you to clone Emotes & Stickers to your own server (right click them)",
+    description: "Позволяет копировать эмодзи и стикеры на ваш сервер (правая кнопка мыши)",
     tags: ["StickerCloner", "EmoteCloner", "EmojiCloner"],
     authors: [Devs.Ven, Devs.Nuckyz],
     contextMenus: {
