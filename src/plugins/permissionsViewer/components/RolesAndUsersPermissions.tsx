@@ -93,14 +93,14 @@ function RolesAndUsersPermissionsComponent({ permissions, guild, modalProps, hea
             size={ModalSize.LARGE}
         >
             <ModalHeader>
-                <Text className={cl("modal-title")} variant="heading-lg/semibold">{header} permissions:</Text>
+                <Text className={cl("modal-title")} variant="heading-lg/semibold">{header} разрешения:</Text>
                 <ModalCloseButton onClick={modalProps.onClose} />
             </ModalHeader>
 
             <ModalContent className={cl("modal-content")}>
                 {!selectedItem && (
                     <div className={cl("modal-no-perms")}>
-                        <Text variant="heading-lg/normal">No permissions to display!</Text>
+                        <Text variant="heading-lg/normal">Нет разрешений для отображения!</Text>
                     </div>
                 )}
 
@@ -161,9 +161,9 @@ function RolesAndUsersPermissionsComponent({ permissions, guild, modalProps, hea
                                             <Text variant="text-md/normal" className={cl("modal-list-item-text")}>
                                                 {
                                                     permission.type === PermissionType.Role
-                                                        ? role?.name ?? "Unknown Role"
+                                                        ? role?.name ?? "Неизвестная роль"
                                                         : permission.type === PermissionType.User
-                                                            ? (user != null && getUniqueUsername(user)) ?? "Unknown User"
+                                                            ? (user != null && getUniqueUsername(user)) ?? "Неизвестный пользователь"
                                                             : (
                                                                 <Flex style={{ gap: "0.2em", justifyItems: "center" }}>
                                                                     @owner
@@ -223,7 +223,7 @@ function RoleContextMenu({ guild, roleId, onClose }: { guild: Guild; roleId: str
         <Menu.Menu
             navId={cl("role-context-menu")}
             onClose={ContextMenuApi.closeContextMenu}
-            aria-label="Role Options"
+            aria-label="Опции роли"
         >
             <Menu.MenuItem
                 id={cl("copy-role-id")}
@@ -264,7 +264,7 @@ function UserContextMenu({ userId }: { userId: string; }) {
         <Menu.Menu
             navId={cl("user-context-menu")}
             onClose={ContextMenuApi.closeContextMenu}
-            aria-label="User Options"
+            aria-label="Опции пользователя"
         >
             <Menu.MenuItem
                 id={cl("copy-user-id")}

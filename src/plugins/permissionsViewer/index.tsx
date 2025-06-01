@@ -49,11 +49,11 @@ const enum MenuItemParentType {
 
 export const settings = definePluginSettings({
     permissionsSortOrder: {
-        description: "The sort method used for defining which role grants an user a certain permission",
+        description: "Способ сортировки для определения, какая роль дает пользователю определенное разрешение",
         type: OptionType.SELECT,
         options: [
-            { label: "Highest Role", value: PermissionsSortOrder.HighestRole, default: true },
-            { label: "Lowest Role", value: PermissionsSortOrder.LowestRole }
+            { label: "Самая высокая роль", value: PermissionsSortOrder.HighestRole, default: true },
+            { label: "Самая низкая роль", value: PermissionsSortOrder.LowestRole }
         ]
     },
 });
@@ -64,7 +64,7 @@ function MenuItem(guildId: string, id?: string, type?: MenuItemParentType) {
     return (
         <Menu.MenuItem
             id="perm-viewer-permissions"
-            label="Permissions"
+            label="Разрешения"
             action={() => {
                 const guild = GuildStore.getGuild(guildId);
 
@@ -159,7 +159,7 @@ function makeContextMenuPatch(childId: string | string[], type?: MenuItemParentT
 
 export default definePlugin({
     name: "PermissionsViewer",
-    description: "View the permissions a user or channel has, and the roles of a server",
+    description: "Просмотр разрешений пользователя или канала, а также ролей сервера",
     authors: [Devs.Nuckyz, Devs.Ven],
     settings,
 
@@ -188,7 +188,7 @@ export default definePlugin({
                 )}
             >
                 {popoutProps => (
-                    <TooltipContainer text="View Permissions">
+                    <TooltipContainer text="Просмотр разрешений">
                         <Button
                             {...popoutProps}
                             buttonRef={buttonRef}

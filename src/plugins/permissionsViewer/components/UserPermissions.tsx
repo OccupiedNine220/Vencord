@@ -80,7 +80,7 @@ interface GrantedByTooltipProps {
 function GrantedByTooltip({ roleName, roleColor }: GrantedByTooltipProps) {
     return (
         <>
-            <Text variant="text-sm/medium">Granted By</Text>
+            <Text variant="text-sm/medium">Разрешено</Text>
             <FakeRole text={roleName} color={roleColor} />
         </>
     );
@@ -140,9 +140,9 @@ function UserPermissionsComponent({ guild, guildMember, closePopout }: { guild: 
 
     return <div>
         <div className={cl("user-header-container")}>
-            <Text variant="eyebrow">Permissions</Text>
+            <Text variant="eyebrow">Разрешения</Text>
             <div className={cl("user-header-btns")}>
-                <Tooltip text={`Sorting by ${permissionsSortOrder === PermissionsSortOrder.HighestRole ? "Highest Role" : "Lowest Role"}`}>
+                <Tooltip text={`Сортировка по ${permissionsSortOrder === PermissionsSortOrder.HighestRole ? "Самая высокая роль" : "Самая низкая роль"}`}>
                     {tooltipProps => (
                         <div
                             {...tooltipProps}
@@ -164,7 +164,7 @@ function UserPermissionsComponent({ guild, guildMember, closePopout }: { guild: 
                         </div>
                     )}
                 </Tooltip>
-                <Tooltip text="Role Details">
+                <Tooltip text="Подробности роли">
                     {tooltipProps => (
                         <div
                             {...tooltipProps}
