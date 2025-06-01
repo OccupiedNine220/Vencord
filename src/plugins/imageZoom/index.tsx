@@ -34,37 +34,37 @@ import managedStyle from "./styles.css?managed";
 export const settings = definePluginSettings({
     saveZoomValues: {
         type: OptionType.BOOLEAN,
-        description: "Whether to save zoom and lens size values",
+        description: "Сохранять значения увеличения и размера линзы",
         default: true,
     },
 
     invertScroll: {
         type: OptionType.BOOLEAN,
-        description: "Invert scroll",
+        description: "Инвертировать прокрутку",
         default: true,
     },
 
     nearestNeighbour: {
         type: OptionType.BOOLEAN,
-        description: "Use Nearest Neighbour Interpolation when scaling images",
+        description: "Использовать интерполяцию ближайшего соседа при масштабировании изображений",
         default: false,
     },
 
     square: {
         type: OptionType.BOOLEAN,
-        description: "Make the lens square",
+        description: "Сделать линзу квадратной",
         default: false,
     },
 
     zoom: {
-        description: "Zoom of the lens",
+        description: "Увеличение линзы",
         type: OptionType.SLIDER,
         markers: makeRange(1, 50, 4),
         default: 2,
         stickToMarkers: false,
     },
     size: {
-        description: "Radius / Size of the lens",
+        description: "Радиус / Размер линзы",
         type: OptionType.SLIDER,
         markers: makeRange(50, 1000, 50),
         default: 100,
@@ -72,7 +72,7 @@ export const settings = definePluginSettings({
     },
 
     zoomSpeed: {
-        description: "How fast the zoom / lens size changes",
+        description: "Насколько быстро изменяется увеличение / размер линзы",
         type: OptionType.SLIDER,
         markers: makeRange(0.1, 5, 0.2),
         default: 0.5,
@@ -156,7 +156,7 @@ const imageContextMenuPatch: NavContextMenuPatchCallback = (children, props) => 
 
 export default definePlugin({
     name: "ImageZoom",
-    description: "Lets you zoom in to images and gifs. Use scroll wheel to zoom in and shift + scroll wheel to increase lens radius / size",
+    description: "Позволяет увеличивать изображения и GIF. Используйте колесо мыши для увеличения и Shift + колесо мыши для увеличения радиуса / размера линзы",
     authors: [Devs.Aria],
     tags: ["ImageUtilities"],
 
