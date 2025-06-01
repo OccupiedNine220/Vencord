@@ -22,37 +22,37 @@ import { OptionType } from "@utils/types";
 export const settings = definePluginSettings({
     receivedInput: {
         type: OptionType.STRING,
-        description: "Language that received messages should be translated from",
+        description: "Язык, с которого должны переводиться полученные сообщения",
         default: "auto",
         hidden: true
     },
     receivedOutput: {
         type: OptionType.STRING,
-        description: "Language that received messages should be translated to",
+        description: "Язык, на который должны переводиться полученные сообщения",
         default: "en",
         hidden: true
     },
     sentInput: {
         type: OptionType.STRING,
-        description: "Language that your own messages should be translated from",
+        description: "Язык, с которого должны переводиться отправленные сообщения",
         default: "auto",
         hidden: true
     },
     sentOutput: {
         type: OptionType.STRING,
-        description: "Language that your own messages should be translated to",
+        description: "Язык, на который должны переводиться отправленные сообщения",
         default: "en",
         hidden: true
     },
 
     showChatBarButton: {
         type: OptionType.BOOLEAN,
-        description: "Show translate button in chat bar",
+        description: "Показывать кнопку перевода в чат-бар",
         default: true
     },
     service: {
         type: OptionType.SELECT,
-        description: IS_WEB ? "Translation service (Not supported on Web!)" : "Translation service",
+        description: IS_WEB ? "Сервис перевода (Не поддерживается в Web!)" : "Сервис перевода",
         disabled: () => IS_WEB,
         options: [
             { label: "Google Translate", value: "google", default: true },
@@ -63,19 +63,19 @@ export const settings = definePluginSettings({
     },
     deeplApiKey: {
         type: OptionType.STRING,
-        description: "DeepL API key",
+        description: "DeepL API ключ",
         default: "",
-        placeholder: "Get your API key from https://deepl.com/your-account",
+        placeholder: "Получите свой API ключ по ссылке https://deepl.com/your-account",
         disabled: () => IS_WEB
     },
     autoTranslate: {
         type: OptionType.BOOLEAN,
-        description: "Automatically translate your messages before sending. You can also shift/right click the translate button to toggle this",
+        description: "Автоматически переводить ваши сообщения перед отправкой. Вы также можете нажать Shift/правой кнопкой мыши на кнопку перевода, чтобы переключить это",
         default: false
     },
     showAutoTranslateTooltip: {
         type: OptionType.BOOLEAN,
-        description: "Show a tooltip on the ChatBar button whenever a message is automatically translated",
+        description: "Показывать всплывающую подсказку на кнопке чат-бара, когда сообщение автоматически переведено",
         default: true
     },
 }).withPrivateSettings<{

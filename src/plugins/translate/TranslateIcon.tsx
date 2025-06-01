@@ -59,12 +59,12 @@ export const TranslateChatBarIcon: ChatBarButtonFactory = ({ isMainChat }) => {
                 title: "Vencord Auto-Translate Enabled",
                 body: <>
                     <Forms.FormText>
-                        You just enabled Auto Translate! Any message <b>will automatically be translated</b> before being sent.
+                        Вы только что включили автоперевод! Любое сообщение <b>будет автоматически переведено</b> перед отправкой.
                     </Forms.FormText>
                 </>,
-                confirmText: "Disable Auto-Translate",
-                cancelText: "Got it",
-                secondaryConfirmText: "Don't show again",
+                confirmText: "Отключить автоперевод",
+                cancelText: "Понятно",
+                secondaryConfirmText: "Не показывать снова",
                 onConfirmSecondary: () => settings.store.showAutoTranslateAlert = false,
                 onConfirm: () => settings.store.autoTranslate = false,
                 // troll
@@ -74,7 +74,7 @@ export const TranslateChatBarIcon: ChatBarButtonFactory = ({ isMainChat }) => {
 
     const button = (
         <ChatBarButton
-            tooltip="Open Translate Modal"
+            tooltip="Открыть окно перевода"
             onClick={e => {
                 if (e.shiftKey) return toggle();
 
@@ -93,7 +93,7 @@ export const TranslateChatBarIcon: ChatBarButtonFactory = ({ isMainChat }) => {
 
     if (shouldShowTranslateEnabledTooltip && settings.store.showAutoTranslateTooltip)
         return (
-            <Tooltip text="Auto Translate Enabled" forceOpen>
+            <Tooltip text="Автоперевод включен" forceOpen>
                 {() => button}
             </Tooltip>
         );
